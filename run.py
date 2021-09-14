@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wait
@@ -5,9 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from database import store_db
 
 
+load_dotenv()
 
 web = 'https://www.amazon.com'
-driver_path = 'D:/Programming/chromedriver_win32/chromedriver'
+driver_path = os.environ.get(MY_DRIVER_PATH)
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
