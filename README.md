@@ -10,6 +10,6 @@ there are products that have reasonable prices and good ratings for you. Web-scr
 - run.py - code for scraping multiple pages
 - requirement.txt - dependencies for this projects
 - amazon_search.db - data collected in the sql database form. You can easily open it via www.sqliteonline.com
-
+![amazon_search sqlite online](/database_screenshot.JPG)
 # Licenses / Acknowledgements / References
 www.amazon.com
