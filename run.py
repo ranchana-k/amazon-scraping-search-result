@@ -33,12 +33,11 @@ def scrape_amazon(keyword, max_pages):
     search_button.click()
 
     driver.implicitly_wait(5)
-    scrape_page(driver)
-    page_number += 1
+    
     while page_number <= max_pages:
+        scrape_page(driver)
         driver.get(next_page)
         driver.implicitly_wait(5)
-        scrape_page(driver)
         page_number += 1
     driver.quit()
 
@@ -89,7 +88,7 @@ def scrape_page(driver):
         link = item.find_element_by_xpath('.//a[@class="a-link-normal a-text-normal"]').get_attribute("href")
         product_link.append(link)
     global next_page
-    next_page = driver.find_element_by_xpath('//span[contains(@class, "s-pagination-selected")]/following-sibling::a').get_attribute("href")
+    next_page = driver.find_element_by_xpath('//li[@class="a-selected")]/following-sibling::li/a').get_attribute("href")
    
     store_db(product_asin, product_name, product_price, product_ratings, product_ratings_num, product_link)
 
